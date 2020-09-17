@@ -1,0 +1,19 @@
+version: "3"
+services:
+  website:
+    stdin_open: true
+    tty: true
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      RAILS_ENV: production
+      CONTENTFUL_ACCESS_TOKEN: 7ac531648a1b5e1dab6c18b0979f822a5aad0fe5f1109829b8a197eb2be4b84c
+      CONTENTFUL_SPACE: kk2bw5ojx476
+      CONTENTFUL_READ_TIMEOUT: 2
+      CONTENTFUL_CONNECT_TIMEOUT: 1
+      CONTENFUL_WRITE_TIMEOUT: 2
+      CONTENTFUL_ENVIRONMENT: master 
+      RAILS_MASTER_KEY: 80927262a0969b028486f0b18d1cd9cc
+      RAILS_SERVE_STATIC_FILES: 'true'
+

@@ -1,0 +1,34 @@
+<% if @result.any? %>
+<div class="container my-4">
+   <p class="font-weight-bold">About:- <%= @result['title'] %> </p>
+   <hr>
+   <div class="row">
+      <!--Grid row-->
+      <!--Grid column-->
+      <div class="col-md-12 mb-6">
+         <!-- Card -->
+         <div class="card">
+            <!-- Card image -->
+            <div class="view overlay">
+               <img class="card-img-top" src="<%= @result['photo_url'] %>" alt="Recipes">
+               <a href="<%= recipe_path(@result['id']) %>">
+                  <div class="mask rgba-white-slight"></div>
+               </a>
+            </div>
+            <!-- Card content -->
+            <div class="card-body">
+               <!-- Button -->
+               <p class="card-text"><%= @result['description'] %></p>
+               <p class="card-text"><b>Chef: </b><%= @result['chef_name'] || '----' %></p>
+               <p class="card-text"><b>Tags: </b><%= @result['tag_names'] %></p>
+            </div>
+         </div>
+         <!-- Card -->
+      </div>
+      <!--Grid column-->
+      <!--Grid row-->
+   </div>
+</div>
+<% else %>
+<%= render 'recipes/not_found' %>
+<% end %>

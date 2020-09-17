@@ -1,0 +1,40 @@
+<% if @results.any? %>
+<div class="container my-4">
+   <p class="font-weight-bold">Today's Delicious Featured Recipes</p>
+   <hr>
+   <div class="row">
+      <% @results.each do |result| %>
+      <!--Grid row-->
+      <!--Grid column-->
+      <div class="col-md-6 mb-4">
+         <!-- Card -->
+         <div class="card">
+            <!-- Card image -->
+            <div class="view overlay">
+               <a href="<%= recipe_path(result['id']) %>">
+                  <img class="card-img-top" src="<%= result['photo_url'] %>" alt="Recipes">
+                  <div class="mask rgba-white-slight"></div>
+               </a>
+            </div>
+            <!-- Card content -->
+            <div class="card-body">
+               <!-- Title -->
+               <!-- Text -->
+               <p class="card-text"><%= result['title'] %></p>
+               <!-- Button -->
+               <a href="<%= recipe_path(result['id']) %>" class="btn bg-header-nav">More...</a>
+            </div>
+         </div>
+         <!-- Card -->
+      </div>
+      <!--Grid column-->
+      <!--Grid row-->
+      <% end %>
+   </div>
+</div>
+<div class="container pagination justify-content-center" >
+   <%= paginate @results, pagination_class: "pagination-sm" %>
+</div>
+<% else %>
+<%= render 'recipes/not_found' %>
+<% end %>
